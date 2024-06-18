@@ -18,7 +18,7 @@ WeMake Milan, Jun 22nd, 2024
 
 ---
 
-# Why MicroPython
+# What is MicroPython
 
 > ... aims to be as compatible with normal Python
 > 
@@ -50,9 +50,13 @@ https://docs.arduino.cc/micropython/
     - For Arduino boards, we can use https://labs.arduino.cc/en/labs/micropython-installer
 
 3. Install an IDE
-    - Arduino Lab for MicroPython https://labs.arduino.cc/en/labs/micropython
+    - Arduino Lab for MicroPython https://labs.arduino.cc/en/labs/micropython 
+        
+      (works with any board)
 
-4. Have fun!
+4. Write your code
+
+5. Have fun!
 
 ---
 
@@ -65,7 +69,7 @@ No need to upload a "sketch". It can be done interactively from the REPL (Read, 
 2. Connect the board using the `Connect` button <img class="h-8 inline" src="/connect-to-board.png"> 
 3. Write to the REPL (i.e. the console window)
 
-```python {all|1,2|4,5|all}
+```python {1,2|4,5|6-10|all}
 from machine import Pin
 from time import sleep
 
@@ -78,22 +82,158 @@ while True:
   sleep(1)
 ```
 
+--- 
+
+# Useful hints when using the Micropython IDE
+
+1. The board has a file system from which it will read the files to be executed, namely `boot.py` and `main.py`.
+
+    Anyway, while developing, **there's no need to save any files on the board**, everything will executed directly on the board, reading the source code from the host machine file system
+
+2. The "Soft reset" button will erase `imports` and `variables` and will start executing the main file from scratch
+
+3. Libraries can be imported directly from the REPL on WiFi capable boards, using the following command
+
+    ```python
+    import mip
+    mip.install('<library name>')
+    ```
+
 ---
 
-# A few more complex examples
+# How to install libraries (1)
+- Libraries can be installed from the host machine using `mpremote`, which in turn requires `pip`, the python package manger.
+
+  ```shellscript
+  $ pip install mpremote
+  $ mpremote mip install <your library >
+  ```
+  Or, if you have multiple boards installed:
+
+  ```sh
+  $ mpremote connect list
+  $ mpremote connect id:<board_id > mip install <your library >
+  ```
+
+
+- In addition, from WiFi capable boards, they can be installed directly from the REPL using the following command
+
+  ```python
+  import mip
+  mip.install('<library name>')
+  ```
+
 
 ---
 
-# Install libraries 
+# How to install libraries (2)
 
+- Most libraries are available on micropython.org, meaning that you can install them **just by  name**:
+
+  ```python
+  mip.install('ssd1306')
+  ```
+
+- Contributed libraries are available elsewhere (e.g. on github) and can be installed using this format: 
+
+  ```python
+  mip.install('github:jposada202020/MicroPython_LSM6DSOX')
+  ```
+
+- Installed libraries are installed in the `/lib` folder on the board
+  
+---
+
+# A more interesting example (1)
+```python {1|2|6-9|all}
+mip.install('ssd1306')
+mip.install('github:jposada202020/MicroPython_LSM6DSOX')
+
+# ...
+
+from machine import Pin, I2C
+from time import sleep_ms, sleep
+from lsm6dsox import LSM6DSOX  
+import ssd1306
+
+display = None
+lsm = None
+
+if __name__ == "__main__":
+    setup()
+    while True:
+      loop()
+
+```
+
+---
+
+# A more complex example (2)
+
+```python
+
+# mimicing setup
+def setup():
+    global display
+    global lsm
+    i2c = I2C(id=0, sda=Pin(12), scl=Pin(13))
+    lsm = LSM6DSOX(I2C(id=0, scl=Pin(13), sda=Pin(12)))
+    display = ssd1306.SSD1306_I2C(128, 64, i2c)
+
+# mimicing loop
+def loop():
+  global lsm
+  display.fill(0)
+  display.text('Accelerometer:', 0, 0)
+  display.text('x:{:>4.3f} y:{:>4.3f}'.format(*lsm.accel()), 0, 8, 2)
+  display.text('z:{:>4.3f}'.format(*lsm.accel()), 0, 16, 2)
+  display.show()
+  sleep(0.2)
+
+
+```
 ---
 
 # Arduino-like runtime 
+<div />
+A module to simplify and help writing MicroPython programs using the setup()/loop() paradigm.
 
+This module also wraps common constants and machine functions in easy-to-use methods. 
+
+  - `setup`, `loop`, `HIGH`, `LOW`, `INPUT`, `OUTPUT`
+  - `pinMode`, `digitalRead`, `digitalWrite`, `delay`, `map`
+  - ... and more, check https://github.com/arduino/arduino-runtime-mpy
+
+```python
+from arduino import *
+
+def setup():
+  print('starting my program')
+
+def loop():
+  print('loop')
+  delay(1000)
+
+def cleanup():
+  print('cleanup')
+
+start(setup, loop, cleanup)
+```
 ---
 
 # Connecting to Arduino Cloud
 
+---
+
+# Conclusion
+
+- Super fast development cycle
+- Ideal for education, very early prototyping
+- Ideal for Python developers
+- A lot of available libraries
+- Since it's an interpreted language, there's no need to compile and store your binaries before executing it on the board => Fast development directly from the host machine
+- Programs should work like the regular C++ (no known issues)
+- <img src="/warning.png" class="mr-2 h-4 inline" />Probably not ideal for time-sensitive tasks
 
 ---
 layout: 'end'
