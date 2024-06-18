@@ -92,12 +92,19 @@ while True:
 
 2. The "Soft reset" button will erase `imports` and `variables` and will start executing the main file from scratch
 
-3. Libraries can be imported directly from the REPL on WiFi capable boards, using the following command
+3. The REPL is available only when a board is connected
 
-    ```python
-    import mip
-    mip.install('<library name>')
-    ```
+4. 😒 Unfortunatelly there's not a `Ctrl-S` shortcut to save the sketch
+
+---
+layout: fact
+---
+
+# Demo
+
+## Get started
+
+https://github.com/csarnataro/micropython_workshop/tree/main/get_started
 
 ---
 
@@ -225,13 +232,14 @@ start(setup, loop, cleanup)
 
 ---
 
-# Conclusion
+# (My own personal) conclusions
 
 - Super fast development cycle
-- Ideal for education, very early prototyping
+- Ideal for education. Coding wise, students have a chance to learn a modern language
+- Ideal for very early prototyping
 - Ideal for Python developers
 - A lot of available libraries
-- Since it's an interpreted language, there's no need to compile and store your binaries before executing it on the board => Fast development directly from the host machine
+- Since it's interpreted, instruction are sent directly to the board => fast development directly from the host machine
 - Programs should work like the regular C++ (no known issues)
 - <img src="/warning.png" class="mr-2 h-4 inline" />Probably not ideal for time-sensitive tasks
 
