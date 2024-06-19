@@ -58,6 +58,11 @@ https://docs.arduino.cc/micropython/
 
 5. Have fun!
 
+<!--
+Download and install both tools now
+-->
+
+
 ---
 
 # Blinking a LED
@@ -82,7 +87,7 @@ while True:
   sleep(1)
 ```
 
---- 
+---
 
 # Useful hints when using the Micropython IDE
 
@@ -95,6 +100,8 @@ while True:
 3. The REPL is available only when a board is connected
 
 4. 😒 Unfortunatelly there's not a `Ctrl-S` shortcut to save the sketch
+    
+    <small>Insiders told me that keyboard shorcuts are coming in a future release 🤫</small>
 
 ---
 layout: fact
@@ -189,6 +196,7 @@ def setup():
 
 # mimicing loop
 def loop():
+  global display
   global lsm
   display.fill(0)
   display.text('Accelerometer:', 0, 0)
@@ -247,6 +255,6 @@ start(setup, loop, cleanup)
 layout: 'end'
 ---
 
-# This is a wrap
+# That's a wrap
 
 Thank you!
