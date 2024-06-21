@@ -4,7 +4,7 @@ from time import sleep_ms
 
 pot_pin = Pin("A0", Pin.OUT)
 blue_led_pin = Pin("A1", Pin.OUT)
-green_led_pin = Pin("A2", Pin.OUT)
+green_led_pin = Pin("A2", Pin.OUT) #USE D12 for testing
 
 pot = ADC(pot_pin)
 pwm = PWM(blue_led_pin)

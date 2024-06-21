@@ -1,0 +1,77 @@
+Non e' un bug, e' una feature
+Non e' rotto, e' solo un test
+Non posso prometterti niente, al momento ho altre priorita'
+Non posso testare tutto
+Non ho trovato nel progetto nessun altro esempio da copiare
+Non avevo previsto errori di questo tipo
+Non ho scritto io quella parte del programma
+L'ho gia' sistemato ma non ho avuto tempo di fare il commit
+A me hanno chiesto di mostrare i risultati in un ordine diverso
+E' la prima volta che mi capita qualcosa di simile in vita mia
+Purtoppo mi hanno appena chiesto di fare alcune cose molto piu' urgenti
+Ho sentito che oggi c'e' stata una tempesta solare
+Non l'ho sistemato per evitare di peggiorare la situazione
+Io non vedo nessun codice d'errore
+Sto facendo degli stress test sul server di produzione
+Per una questione di efficienza, controllo le email solo di venerdi'
+Mi sembrava di ricordare di averlo gia' finito
+Forse c'e' un problema col firewall
+Forse c'e' un problema col secondo intercalare
+Forse c'e' un problema con l'anno bisestile
+E' un problema di compatibilita' del browser
+E' un problema di encoding dei caratteri
+E' un problema noto del server
+E' sempre stato cosi'
+E' un problema del software del fornitore
+Non era mai successo prima d'ora
+Non l'ho testato ma dovrebbe funzionare
+Dovremmo riscrivere tutto da zero, ma non ne abbiamo il tempo
+I nostri manager ci hanno detto di non perdere tempo a scrivere unit test
+Mi hanno allocato su piu' progetti e non riesco a seguirli tutti come si deve
+Nessuno mi ha mai chiesto un parere su quanto ci vuole per finire il lavoro
+Nessuno si e' mai lamentato prima d'ora
+Nessuno mi ha detto come farlo, quindi ho deciso IO di farlo cosi'
+Ah, quello? E' solo un fix temporaneo
+Ah, scusa, mi avevi detto che NON doveva funzionare cosi'?
+Ci sono problemi con Internet
+A quanto pare, il nostro sistema ad alta affidabilita' e' andato giu'
+Qualcuno ha modificato il mio codice
+Quel pezzo di codice sembrava talmente semplice che mi sembrava inutile testarlo
+Quell'errore in realta' significa che sta andando tutto bene
+Quella funzionalita' e' stata rimandata alla fase 2
+Quella funzionalita' e' out of scope
+Forse la tua email e' finita nello spam
+E' gia' stato sistemato, ma ancora non ho ancora fatto il deploy
+E' colpa del grafico
+Ma e' incredibile, quell'errore si verifica solo una volta su un milione!
+Quella roba non era nelle specifiche originali
+Credo che l'ufficio acquisti abbia annullato il contratto col fornitore
+Il cliente mi ha chiesto una modifica all'ultimo minuto
+E' impossibile fare quello che ci chiedono seguendo il progetto originale
+Ce l'ha chiesto il marketing
+Le specifiche contengono requisiti in contraddizione tra loro
+Il tipo che si occupava di quella cosa non lavora piu' qui da anni
+Quell'informazione viene ignorata dal programma
+C'e' qualcosa di sbagliato nei TUOI dati
+Forse qualche pacchetto della richiesta e' andato perso
+Ci sono dei problemi con l'hosting
+Sai com'e', all'inizio c'erano troppi pochi dati per fare dei test significativi
+Su questa cosa ci hanno lavorato troppi programmatori
+L'API del fornitore non risponde
+Il fornitore non ci ha mai inviato la documentazione
+Lo unit test non copre quella casistica
+L'editor WYSIWYG ha generato un output non valido
+Non e' come pensi tu
+Beh, almeno il messaggio d'errore e' molto esplicativo
+Beh, almeno ora sappiamo che e' meglio non cliccare li'
+Beh, e' gia' qualcosa
+Quel sistema l'abbiamo dato in outsourcing mesi fa
+Avremmo dovuto aggiornare il software anni fa
+Ci abbiamo messo tre mesi a debuggarlo perche' avevamo solo un mese per svilupparlo
+Te l'avevo detto che alcune funzionalita' sono troppo complicate per te!
+Ecco, l'hai fatto crashare!
+Ma sei proprio sicuro di volerlo cosi'?
+Ti sei sicuramente perso qualche dipendenza
+Forse stai usando la versione sbagliata
+Hai provato a pulire la cache del tuo browser?
+Sei TU che stai sbagliando

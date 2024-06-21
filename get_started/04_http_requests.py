@@ -1,13 +1,16 @@
 import network
 import requests
-from time import sleep
+import ssd1306
+from machine import I2C
+from time import sleep, sleep_ms
 
-ssid = b'--ssid--'
-key = b'--key--'
+from secrets import WIFI_SSID
+from secrets import WIFI_PASS
 net_if = None
 is_connected = False
+display = None
 
-def do_connect(ssid = ssid, key = key):
+def do_connect(ssid = WIFI_SSID, key = WIFI_PASS):
     import network
     global is_connected
     sta_if = network.WLAN(network.STA_IF)
@@ -21,12 +24,22 @@ def do_connect(ssid = ssid, key = key):
     print('network config:', sta_if.ifconfig())
 
 # Main starts here
+i2c = I2C(id=0, sda=Pin(12), scl=Pin(13))
+display = ssd1306.SSD1306_I2C(128, 64, i2c)
+display.text('Connecting...', 0, 16, 2)
+display.show()
 
-do_connect(ssid, key)
+do_connect(WIFI_SSID, WIFI_PASS)
 
 while True and is_connected:
-  rq = requests.get('https://raw.githubusercontent.com/csarnataro/programmer_excuses_flutter/master/assets/translations/italian.txt')
+  rq = requests.get('https://raw.githubusercontent.com/csarnataro/micropython_workshop/main/quotes.txt')
   quotes = rq.content
-  quote = quotes.splitlines()[random(70)]
+  quote = quotes.splitlines()[random(70)].decode("latin-1")
   print(quote)
-  sleep(20)  
+  display.fill(0)
+  quote = '{:<12} {}'.format(24* " ", quote)
+  for x in range(len(quote) + 1):
+    display.fill(0)
+    display.text(quote[x:24+x], 0, 16)
+    sleep_ms(100)
+    display.show()
