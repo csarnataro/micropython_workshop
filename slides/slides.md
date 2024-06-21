@@ -182,7 +182,7 @@ if __name__ == "__main__":
 
 ---
 
-# A more complex example (2)
+# A more interesting example (2)
 
 ```python
 
