@@ -4,15 +4,10 @@ import logging
 from machine import Pin, PWM, ADC
 from time import sleep_ms
 
-from arduino_iot_cloud import ArduinoCloudClient
-from arduino_iot_cloud import Color
-from arduino_iot_cloud import Task
+from arduino_iot_cloud import ArduinoCloudClient, Color, Task
 
 # WIFI_SSID and WIFI_PASS are loaded automatically by async_wifi_connection function
-from secrets import WIFI_SSID
-from secrets import WIFI_PASS
-from secrets import DEVICE_ID
-from secrets import CLOUD_PASSWORD
+from secrets import WIFI_SSID, WIFI_PASS, DEVICE_ID, CLOUD_PASSWORD
 
 POTENTIOMETER_DELAY_SECONDS = 0.5
 
