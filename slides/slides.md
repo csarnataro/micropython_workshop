@@ -219,7 +219,7 @@ This module also wraps common constants and machine functions in easy-to-use met
   - `pinMode`, `digitalRead`, `digitalWrite`, `delay`, `map`
   - ... and more, check https://github.com/arduino/arduino-runtime-mpy
 
-```python
+```python {13|all}
 from arduino import *
 
 def setup():
@@ -236,7 +236,41 @@ start(setup, loop, cleanup)
 ```
 ---
 
-# Connecting to Arduino Cloud
+# Connecting to Arduino Cloud (1)
+<div/>
+
+- Check https://docs.arduino.cc/arduino-cloud/guides/micropython/
+
+- Install `arduino_iot_cloud` with `mpremote`
+
+- Everything starts (and ends) with `client.start()` (it's blocking)
+
+- Register cloud variables and tasks (e.g. a `loop`) with `client.register`
+
+---
+
+# Connecting to Arduino Cloud (2)
+<div/>
+
+```python {3|7|11-16|all}
+[...]
+
+from arduino_iot_cloud import ArduinoCloudClient, Task
+
+[...]
+
+def wifi_connect():
+  [...]
+
+# in Main
+    wifi_connect()
+    client = ArduinoCloudClient(
+        device_id=DEVICE_ID, username=DEVICE_ID, password=CLOUD_PASSWORD
+    )
+    client.register("led", value=False, on_write=on_led_changed)
+    client.register(Task("loop", on_run=loop, interval=POTENTIOMETER_DELAY_SECONDS))
+```
+
 
 ---
 
