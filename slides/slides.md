@@ -113,6 +113,8 @@ layout: fact
 
 https://github.com/csarnataro/micropython_workshop/tree/main/get_started
 
+(sketches 1-3)
+
 ---
 
 # How to install libraries (1)
