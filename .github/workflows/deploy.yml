@@ -27,7 +27,7 @@ jobs:
           node-version: 'lts/*'
 
       - name: Install dependencies
-        run: npm install
+        run: cd slides && npm install
 
       - name: Build
         run: cd slides && npm run build -- --base /${{github.event.repository.name}}/
