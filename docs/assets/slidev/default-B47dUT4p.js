@@ -1,1 +1,0 @@
-import{o,b as s,f as t}from"../modules/vue-IhCS570-.js";import{_ as r}from"../index-Cu5_GQ2r.js";const a={},c={class:"slidev-layout default"};function n(e,l){return o(),s("div",c,[t(e.$slots,"default")])}const _=r(a,[["render",n],["__file","/Users/christian/Private/csarnataro/micropython_workshop/slides/node_modules/@slidev/client/layouts/default.vue"]]);export{_ as I};
