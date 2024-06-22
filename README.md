@@ -64,3 +64,6 @@ import mip
 mip.install('ssd1306') # oled
 mip.install("github:jposada202020/MicroPython_LSM6DSOX") # gyroscope on PR2040
 ```
+
+### Slides 
+Slides available at https://csarnataro.github.io/micropython_workshop/
