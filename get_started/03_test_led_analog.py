@@ -2,9 +2,9 @@
 from machine import Pin, ADC, PWM
 from time import sleep_ms
 
-pot_pin = Pin("A0", Pin.OUT)
+pot_pin = Pin("A0", Pin.IN)
 blue_led_pin = Pin("A1", Pin.OUT)
-green_led_pin = Pin("A2", Pin.OUT) #USE D12 for testing
+green_led_pin = Pin("D12", Pin.OUT) #USE D12 for testing
 
 pot = ADC(pot_pin)
 pwm = PWM(blue_led_pin)
@@ -16,6 +16,7 @@ while True:
   pot_value = pot.read_u16()
   sleep_ms(10)
   if pot_value > 500:
+    print(pot_value)
     pwm.duty_u16(pot_value)
     pwm_green.duty_u16(2^16 - pot_value)
   else:
